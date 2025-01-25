@@ -1,0 +1,21 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "microstationcorp",
+          "appId": "1:772014623567:android:09af64a0d67b33b767d33a",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "dart": {
+        "lib/firebase_options.dart": {
+          "projectId": "microstationcorp",
+          "configurations": {
+            "android": "1:772014623567:android:09af64a0d67b33b767d33a"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "772014623567",
+    "project_id": "microstationcorp",
+    "storage_bucket": "microstationcorp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772014623567:android:09af64a0d67b33b767d33a",
+        "android_client_info": {
+          "package_name": "com.microstationcorp.chitpur"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKoqxuc2fVq4lwTd1x2EPdPvxHsZmWEO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
