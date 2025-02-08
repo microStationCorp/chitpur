@@ -1,5 +1,4 @@
 import 'package:chitpur/data/controller/common/network_controller.dart';
-import 'package:chitpur/resource/app_color.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,11 +20,12 @@ class NetworkErrorScreen extends StatelessWidget {
               Icon(
                 Icons.cloud_off,
                 size: 50,
-                color: AppColor.lightGrey,
               ),
               Text(
                 "No Internet Connection",
-                style: TextStyle(fontSize: 20, color: AppColor.lightGrey),
+                style: TextStyle(
+                  fontSize: 20,
+                ),
               )
             ],
           ),

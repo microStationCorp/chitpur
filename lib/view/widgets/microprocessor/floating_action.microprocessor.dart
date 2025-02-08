@@ -1,3 +1,4 @@
+import 'package:chitpur/resource/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -12,7 +13,7 @@ class FloatingActionMP extends StatelessWidget {
       onPressed: () {
         Get.toNamed(RouteNames.dataAddMPScreen);
       },
-      child: Icon(Icons.add),
+      child: Icon(AppIcons.plus),
     );
   }
 }

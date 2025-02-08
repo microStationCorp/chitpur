@@ -1,7 +1,7 @@
 import 'package:chitpur/dependency_injection.dart';
 import 'package:chitpur/firebase_options.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/app_theme.dart';
+import 'package:chitpur/resource/theme/app_theme.dart';
 import 'package:chitpur/routes/route.dart';
 import 'package:chitpur/routes/route_name.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -20,7 +20,7 @@ Future<void> main() async {
   DependencyInjection().init();
 
   // Run the app
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 /// Main application widget
@@ -36,10 +36,12 @@ class MyApp extends StatelessWidget {
       // App title
       title: AppString.appName,
       // App theme
-      theme: appTheme,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.light,
       initialRoute: RouteNames.splashScreen,
       // Home widget
-      // home: const SplashScreen(),
+      // home: UItest(),
       // List of routes
       getPages: [
         ...AppRoutes.appRoutes(),

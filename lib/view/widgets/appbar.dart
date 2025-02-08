@@ -1,5 +1,5 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
-import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,26 +19,27 @@ class AppBarC extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    String? currentPage = ModalRoute.of(context)?.settings.name;
+
     // TODO: implement build
     return AppBar(
       title: Text(
         title,
       ),
-      centerTitle: true,
       elevation: 0,
-      iconTheme: IconThemeData(
-        color: AppColor.primaryColor,
-      ),
       actions: <Widget>[
         _authController.isSignedIn
             ? _IconButton(
-                icon: Icons.account_circle,
+                icon: AppIcons.user,
                 routeName: RouteNames.profileScreen,
               )
-            : _IconButton(
-                icon: Icons.login_outlined,
-                routeName: RouteNames.authScreen,
-              )
+            : currentPage == RouteNames.authScreen
+                ? _IconButton(
+                    icon: AppIcons.home, routeName: RouteNames.homeScreen)
+                : _IconButton(
+                    icon: AppIcons.login,
+                    routeName: RouteNames.authScreen,
+                  )
       ],
     );
   }
@@ -54,7 +55,12 @@ class _IconButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return IconButton(
       onPressed: () {
-        Get.toNamed(routeName);
+        if (routeName == RouteNames.homeScreen ||
+            routeName == RouteNames.authScreen) {
+          Get.offAllNamed(routeName);
+        } else {
+          Get.toNamed(routeName);
+        }
       },
       icon: Icon(
         icon,

@@ -1,5 +1,6 @@
 import 'package:chitpur/data/controller/microprocessor/category.controller.dart';
 import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_typography.dart';
 import 'package:chitpur/view/widgets/microprocessor/cover.microprocessor.dart';
 import 'package:chitpur/view/widgets/microprocessor/stream_list_builder.microprocessor.dart';
@@ -80,8 +81,7 @@ class DataSearchMP extends StatelessWidget {
         );
       },
       icon: Icon(
-        Icons.tune_rounded,
-        color: AppColor.primaryColor,
+        AppIcons.filter,
       ),
     );
   }
@@ -102,25 +102,23 @@ class DataSearchMP extends StatelessWidget {
           onPressed: () {
             categoryController.updateSearchParam(controller.text);
           },
-          icon: Icon(Icons.search),
+          icon: Icon(AppIcons.search),
         ),
-        prefixIconColor: AppColor.primaryColor,
         suffixIcon: Obx(
           () => IconButton(
             onPressed: () {
               controller.clear();
               controllerMP.searchString.value = '';
             },
-            icon: Icon(
-                controllerMP.searchString.value.isEmpty ? null : Icons.clear),
+            icon: Icon(controllerMP.searchString.value.isEmpty
+                ? null
+                : AppIcons.cross),
           ),
         ),
-        suffixIconColor: AppColor.primaryColor,
         border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(10.0),
-            borderSide: BorderSide(
-              color: AppColor.primaryColor,
-            )),
+          borderRadius: BorderRadius.circular(10.0),
+          borderSide: BorderSide(),
+        ),
         labelText: "Search Coach Number",
         labelStyle: TextStyle(
           color: Theme.of(context).colorScheme.secondary,
@@ -146,7 +144,6 @@ class DataSearchMP extends StatelessWidget {
     return Obx(
       () => Container(
         decoration: BoxDecoration(
-          color: AppColor.tileSurfaceColor,
           borderRadius: BorderRadius.circular(20.0),
         ),
         padding: EdgeInsets.all(16.0),
@@ -160,7 +157,6 @@ class DataSearchMP extends StatelessWidget {
                     'Categories',
                     style: TextStyle(
                       fontSize: 24,
-                      color: AppColor.primaryColor,
                     ),
                   ),
                 ),
@@ -204,7 +200,7 @@ class DataSearchMP extends StatelessWidget {
                         ),
                       ),
                       tileColor: subCategory.isSelected.value
-                          ? AppColor.lightGrey
+                          ? AppColors.lightGrey
                           : null,
                       onTap: () {
                         categoryController.toggleSelection(subCategory);

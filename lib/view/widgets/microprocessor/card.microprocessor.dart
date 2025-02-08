@@ -1,4 +1,3 @@
-import 'package:chitpur/resource/app_color.dart';
 import 'package:flutter/material.dart';
 
 class CardMP extends StatelessWidget {
@@ -23,7 +22,6 @@ Text cardHeader(String title) {
     title,
     style: TextStyle(
       fontSize: 24,
-      color: AppColor.primaryColor,
     ),
   );
 }

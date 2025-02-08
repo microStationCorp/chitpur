@@ -1,4 +1,3 @@
-import 'package:chitpur/resource/app_color.dart';
 import 'package:flutter/material.dart';
 
 import '../../../resource/app_string.dart';
@@ -40,7 +39,6 @@ class _DropDownFieldState extends State<DropDownField> {
         Flexible(
           flex: 3,
           child: DropdownButtonFormField(
-            dropdownColor: AppColor.tileSurfaceColor,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
             ),

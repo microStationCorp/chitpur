@@ -1,5 +1,7 @@
 import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
+import 'package:chitpur/resource/app_typography.dart';
 import 'package:chitpur/view/widgets/microprocessor/card.microprocessor.dart';
 import 'package:flutter/material.dart';
 
@@ -60,23 +62,23 @@ Widget? textFieldData(
                 child: fieldValue == AnalogFieldOptions.ok
                     ? IconTextField(
                         fieldValue: fieldValue,
-                        textColor: AppColor.successTextColor,
-                        surfaceColor: AppColor.successSurfaceColor,
-                        icon: Icons.check,
+                        textColor: Colors.white,
+                        surfaceColor: AppColors.checkColor,
+                        icon: AppIcons.check,
                       )
                     : fieldValue == AnalogFieldOptions.nok
                         ? IconTextField(
                             fieldValue: fieldValue,
-                            textColor: AppColor.errorTextColor,
-                            surfaceColor: AppColor.errorSurfaceColor,
-                            icon: Icons.close_rounded,
+                            textColor: AppColors.dark.onError,
+                            surfaceColor: AppColors.dark.error,
+                            icon: AppIcons.badgeAlert,
                           )
                         : fieldValue == AnalogFieldOptions.notChecked
                             ? IconTextField(
                                 fieldValue: fieldValue,
-                                textColor: AppColor.charcoalGrey,
-                                surfaceColor: AppColor.lightGrey,
-                                icon: Icons.stop_outlined,
+                                textColor: AppColors.charcoalGrey,
+                                surfaceColor: AppColors.lightGrey,
+                                icon: AppIcons.noCheck,
                               )
                             : Text(
                                 fieldValue,
@@ -126,9 +128,13 @@ class IconTextField extends StatelessWidget {
                 color: textColor,
               ),
             ),
+            SizedBox(
+              width: 5,
+            ),
             Icon(
               icon,
               color: textColor,
+              size: AppTypo.primaryFontSize,
             )
           ],
         ),

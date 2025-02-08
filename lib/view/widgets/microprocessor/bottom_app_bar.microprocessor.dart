@@ -1,9 +1,8 @@
-import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_typography.dart';
+import 'package:chitpur/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import 'package:chitpur/routes/route_name.dart';
 
 class BottomAppbarCMP extends StatelessWidget {
   const BottomAppbarCMP({super.key});
@@ -16,15 +15,15 @@ class BottomAppbarCMP extends StatelessWidget {
         children: <Widget>[
           _IconButton(
             routeName: RouteNames.microprocessorScreen,
-            icon: Icons.home_outlined,
+            icon: AppIcons.home,
           ),
           _IconButton(
             routeName: RouteNames.dataListMPScreen,
-            icon: Icons.format_list_bulleted,
+            icon: AppIcons.list,
           ),
           _IconButton(
             routeName: RouteNames.dataSearchMPScreen,
-            icon: Icons.search,
+            icon: AppIcons.search,
           ),
         ],
       ),
@@ -47,7 +46,6 @@ class _IconButton extends StatelessWidget {
       icon: Icon(
         icon,
         size: AppTypo.actionIconSize,
-        color: AppColor.primaryColor,
       ),
     );
   }

@@ -1,8 +1,6 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
-import 'package:chitpur/resource/app_color.dart';
 import 'package:chitpur/resource/app_string.dart';
 import 'package:chitpur/resource/app_typography.dart';
-import 'package:chitpur/view/screens/profile.screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -16,34 +14,31 @@ class DrawerC extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      child: Container(
-        color: AppColor.white,
-        child: ListView(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          children: [
-            _DrawerHeader(authController: authController),
-            ListTile(
-              title: Text(
-                "Home",
-                style: TextStyle(fontSize: AppTypo.primaryFontSize),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(RouteNames.homeScreen);
-              },
+      child: ListView(
+        padding: EdgeInsets.symmetric(horizontal: 20),
+        children: [
+          _DrawerHeader(authController: authController),
+          ListTile(
+            title: Text(
+              "Home",
+              style: TextStyle(fontSize: AppTypo.primaryFontSize),
             ),
-            ListTile(
-              title: Text(
-                "Microprocessors",
-                style: TextStyle(fontSize: AppTypo.primaryFontSize),
-              ),
-              onTap: () {
-                Navigator.pop(context);
-                Get.toNamed(RouteNames.microprocessorScreen);
-              },
-            )
-          ],
-        ),
+            onTap: () {
+              Navigator.pop(context);
+              Get.toNamed(RouteNames.homeScreen);
+            },
+          ),
+          ListTile(
+            title: Text(
+              "Microprocessors",
+              style: TextStyle(fontSize: AppTypo.primaryFontSize),
+            ),
+            onTap: () {
+              Navigator.pop(context);
+              Get.toNamed(RouteNames.microprocessorScreen);
+            },
+          )
+        ],
       ),
     );
   }

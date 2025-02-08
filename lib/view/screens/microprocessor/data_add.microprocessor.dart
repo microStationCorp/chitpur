@@ -530,8 +530,6 @@ class _DataAddMPState extends State<DataAddMP> {
                           child: ElevatedButton(
                             style: ButtonStyle(
                               elevation: WidgetStateProperty.all(0),
-                              backgroundColor: WidgetStateProperty.all(
-                                  AppColor.outlineColor),
                             ),
                             onPressed: () {
                               generalSnackBar("Attention", "Form Cleared");
@@ -542,7 +540,6 @@ class _DataAddMPState extends State<DataAddMP> {
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
-                                color: AppColor.cardBackgroundColor,
                               ),
                             ),
                           ),
