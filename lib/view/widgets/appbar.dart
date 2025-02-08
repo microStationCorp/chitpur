@@ -1,6 +1,8 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
+import 'package:chitpur/data/controller/ui/theme.controller.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_typography.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -10,6 +12,7 @@ class AppBarC extends StatelessWidget implements PreferredSizeWidget {
   final double height;
   final String title;
   final AuthController _authController = Get.find();
+  final ThemeController _themeController = Get.find();
 
   AppBarC({super.key, this.height = kToolbarHeight, required this.title});
 
@@ -23,8 +26,13 @@ class AppBarC extends StatelessWidget implements PreferredSizeWidget {
 
     // TODO: implement build
     return AppBar(
-      title: Text(
-        title,
+      title: GestureDetector(
+        onHorizontalDragEnd: (details) {
+          _themeController.changeTheme(!_themeController.isDark.value);
+        },
+        child: Text(
+          title,
+        ),
       ),
       elevation: 0,
       actions: <Widget>[
