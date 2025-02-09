@@ -1,8 +1,6 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
 import 'package:chitpur/data/controller/ui/theme.controller.dart';
 import 'package:chitpur/resource/app_icons.dart';
-import 'package:chitpur/resource/app_typography.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -72,7 +70,6 @@ class _IconButton extends StatelessWidget {
       },
       icon: Icon(
         icon,
-        size: AppTypo.actionIconSize,
       ),
     );
   }

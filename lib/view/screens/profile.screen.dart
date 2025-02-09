@@ -1,7 +1,7 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/app_typography.dart';
+import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:chitpur/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -42,19 +42,16 @@ class ProfileScreen extends StatelessWidget {
                         Text(
                           "Name : ${_authController.user.value.name != "" ? _authController.user.value.name : "Not defined"}",
                           style: TextStyle(
-                            fontSize: AppTypo.primaryFontSize,
                           ),
                         ),
                         Text(
                           "Email : ${_authController.user.value.email}",
                           style: TextStyle(
-                            fontSize: AppTypo.primaryFontSize,
                           ),
                         ),
                         Text(
                           "Created At : ${_authController.user.value.createdAt.toLocal().toString().substring(0, 10)}",
                           style: TextStyle(
-                            fontSize: AppTypo.primaryFontSize,
                           ),
                         ),
                       ],
@@ -74,7 +71,6 @@ class ProfileScreen extends StatelessWidget {
                   Text(
                     "Sign Out",
                     style: TextStyle(
-                      fontSize: AppTypo.primaryFontSize,
                     ),
                   ),
                   SizedBox(
@@ -83,7 +79,6 @@ class ProfileScreen extends StatelessWidget {
                   Icon(
                     AppIcons.logout,
                     weight: 2,
-                    size: AppTypo.primaryFontSize,
                   )
                 ],
               ),

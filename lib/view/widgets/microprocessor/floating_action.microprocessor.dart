@@ -13,6 +13,7 @@ class FloatingActionMP extends StatelessWidget {
       onPressed: () {
         Get.toNamed(RouteNames.dataAddMPScreen);
       },
+      shape: CircleBorder(),
       child: Icon(AppIcons.plus),
     );
   }

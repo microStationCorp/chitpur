@@ -1,4 +1,4 @@
-import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

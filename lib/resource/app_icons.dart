@@ -21,4 +21,5 @@ class AppIcons {
   static const IconData error = LucideIcons.octagonX;
   static const IconData register = LucideIcons.userPlus;
   static const IconData lock = LucideIcons.lock;
+  static const IconData back = LucideIcons.chevronLeft;
 }

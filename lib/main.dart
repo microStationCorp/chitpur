@@ -5,15 +5,18 @@ import 'package:chitpur/resource/app_string.dart';
 import 'package:chitpur/resource/theme/app_theme.dart';
 import 'package:chitpur/routes/route.dart';
 import 'package:chitpur/routes/route_name.dart';
-import 'package:chitpur/view/screens/ui_test.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'data/services/shared_pref_service.dart';
 
 /// Main function
 Future<void> main() async {
   // Initialize flutter binding
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SharedPrefService().init();
 
   // Initialize Firebase
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -28,7 +31,7 @@ Future<void> main() async {
 /// Main application widget
 class MyApp extends StatelessWidget {
   /// Constructor
-  MyApp({super.key});
+  const MyApp({super.key});
 
   /// Build method
   @override

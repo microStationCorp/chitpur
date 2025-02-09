@@ -1,5 +1,5 @@
 import 'package:chitpur/data/controller/microprocessor/controller.microprocessor.dart';
-import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/resource/app_string.dart';
 import 'package:chitpur/utils/form_validators.dart';
 import 'package:chitpur/view/widgets/common/feedback_snackbar.dart';

@@ -1,5 +1,6 @@
 import 'package:chitpur/data/controller/microprocessor/controller.microprocessor.dart';
 import 'package:chitpur/data/models/microprocessor/microprocessor.model.dart';
+import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
 import 'package:chitpur/view/widgets/microprocessor/coach_detail/widgets.coach_detail.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,12 @@ class _CoachDetailMPState extends State<CoachDetailMP> {
         title: Text(
             "${widget.microprocessor.coachNumber}(${widget.microprocessor.coachType.toUpperCase()})"),
         centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: Icon(AppIcons.back),
+        ),
       ),
       body: CustomScrollView(
         slivers: [

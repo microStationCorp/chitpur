@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../app_color.dart';
+import 'app_color.dart';
 
 class CColorScheme {
   CColorScheme._();

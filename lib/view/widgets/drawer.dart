@@ -1,6 +1,6 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/app_typography.dart';
+import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -21,7 +21,6 @@ class DrawerC extends StatelessWidget {
           ListTile(
             title: Text(
               "Home",
-              style: TextStyle(fontSize: AppTypo.primaryFontSize),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -31,7 +30,6 @@ class DrawerC extends StatelessWidget {
           ListTile(
             title: Text(
               "Microprocessors",
-              style: TextStyle(fontSize: AppTypo.primaryFontSize),
             ),
             onTap: () {
               Navigator.pop(context);
@@ -53,10 +51,10 @@ class _DrawerHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return DrawerHeader(
       child: Center(
-          child: Text(
-        AppString.appName,
-        style: TextStyle(fontSize: AppTypo.drawerHeader),
-      )),
+        child: Text(
+          AppString.appName,
+        ),
+      ),
     );
   }
 }

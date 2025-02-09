@@ -1,7 +1,7 @@
-import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/app_typography.dart';
+import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:chitpur/view/widgets/microprocessor/card.microprocessor.dart';
 import 'package:flutter/material.dart';
 
@@ -52,9 +52,6 @@ Widget? textFieldData(
                 flex: 3,
                 child: Text(
                   fieldName,
-                  style: TextStyle(
-                    fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
-                  ),
                 ),
               ),
               Flexible(
@@ -123,8 +120,7 @@ class IconTextField extends StatelessWidget {
           children: [
             Text(
               fieldValue,
-              style: TextStyle(
-                fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize,
+              style: TextStyle().copyWith(
                 color: textColor,
               ),
             ),
@@ -134,7 +130,6 @@ class IconTextField extends StatelessWidget {
             Icon(
               icon,
               color: textColor,
-              size: AppTypo.primaryFontSize,
             )
           ],
         ),

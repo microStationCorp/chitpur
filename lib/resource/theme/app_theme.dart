@@ -1,4 +1,4 @@
-import 'package:chitpur/resource/app_color.dart';
+import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/resource/theme/color_scheme.dart';
 import 'package:chitpur/resource/theme/text_theme.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +11,10 @@ class AppTheme {
     useMaterial3: true,
     // Use Material Design 3
     fontFamily: GoogleFonts.inconsolata().fontFamily,
+    floatingActionButtonTheme: FloatingActionButtonThemeData().copyWith(
+      elevation: 2
+    )
     // Set default font family
-    floatingActionButtonTheme: FloatingActionButtonThemeData(
-      iconSize: 30, // Icon size for FAB
-    ),
   );
 
   static ThemeData lightTheme = _baseTheme.copyWith(
@@ -28,7 +28,14 @@ class AppTheme {
     bottomNavigationBarTheme: BottomNavigationBarThemeData().copyWith(
       backgroundColor: AppColors.light.surface,
       elevation: 0,
-      unselectedItemColor: AppColors.light.primaryFixedDim,
+      unselectedItemColor: AppColors.light.primaryFixed,
+    ),
+    bottomAppBarTheme: BottomAppBarTheme().copyWith(
+      elevation: 0,
+      color: AppColors.light.primaryContainer,
+    ),
+    iconTheme: IconThemeData(
+      color: AppColors.light.onPrimaryContainer,
     ),
   );
 
@@ -44,6 +51,13 @@ class AppTheme {
       backgroundColor: AppColors.dark.surface,
       elevation: 0,
       unselectedItemColor: AppColors.dark.primaryFixed,
+    ),
+    bottomAppBarTheme: BottomAppBarTheme().copyWith(
+      elevation: 0,
+      color: AppColors.dark.primaryContainer,
+    ),
+    iconTheme: IconThemeData(
+      color: AppColors.dark.onPrimaryContainer,
     ),
   );
 }

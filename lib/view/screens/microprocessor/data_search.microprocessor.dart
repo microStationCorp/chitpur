@@ -1,7 +1,6 @@
 import 'package:chitpur/data/controller/microprocessor/category.controller.dart';
-import 'package:chitpur/resource/app_color.dart';
 import 'package:chitpur/resource/app_icons.dart';
-import 'package:chitpur/resource/app_typography.dart';
+import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/view/widgets/microprocessor/cover.microprocessor.dart';
 import 'package:chitpur/view/widgets/microprocessor/stream_list_builder.microprocessor.dart';
 import 'package:flutter/material.dart';
@@ -122,7 +121,6 @@ class DataSearchMP extends StatelessWidget {
         labelText: "Search Coach Number",
         labelStyle: TextStyle(
           color: Theme.of(context).colorScheme.secondary,
-          fontSize: AppTypo.primaryFontSize,
         ),
       ),
     );

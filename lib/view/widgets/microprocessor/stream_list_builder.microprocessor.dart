@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../resource/app_typography.dart';
+import '../../../resource/theme/app_typography.dart';
 import '../../screens/microprocessor/coach_detail/coach_detail.microprocessor.dart';
 import 'list_tile.microprocessor.dart';
 
@@ -11,7 +11,6 @@ Widget streamListBuilder(context, snapshot) {
     return const Center(
       child: Text(
         "No Data",
-        style: TextStyle(fontSize: AppTypo.primaryFontSize),
       ),
     );
   }

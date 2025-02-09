@@ -1,5 +1,5 @@
 import 'package:chitpur/data/models/microprocessor/microprocessor.model.dart';
-import 'package:chitpur/resource/app_typography.dart';
+import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
 class ListTileCustom extends ListTile {
@@ -22,7 +22,6 @@ class ListTileCustom extends ListTile {
           textAlign: TextAlign.center,
           "${microprocessor.coachNumber} - ${microprocessor.coachType.toUpperCase()}",
           style: TextStyle(
-            fontSize: AppTypo.primaryFontSize,
           ),
         ),
         onTap: onTapCallback,

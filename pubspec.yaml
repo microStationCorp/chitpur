@@ -40,6 +40,7 @@ dependencies:
   cloud_firestore: ^5.6.2
   firebase_auth: ^5.4.1
   lucide_icons_flutter: ^1.2.6
+  shared_preferences: ^2.5.1
 
 dev_dependencies:
   flutter_test:
