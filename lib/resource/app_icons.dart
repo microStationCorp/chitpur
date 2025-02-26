@@ -22,4 +22,7 @@ class AppIcons {
   static const IconData register = LucideIcons.userPlus;
   static const IconData lock = LucideIcons.lock;
   static const IconData back = LucideIcons.chevronLeft;
+  static const IconData atSign = LucideIcons.atSign;
+  static const IconData keyRound = LucideIcons.keyRound;
+  static const IconData phone = LucideIcons.phone;
 }

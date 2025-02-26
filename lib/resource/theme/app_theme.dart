@@ -1,4 +1,5 @@
 import 'package:chitpur/resource/theme/app_color.dart';
+import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:chitpur/resource/theme/color_scheme.dart';
 import 'package:chitpur/resource/theme/text_theme.dart';
 import 'package:flutter/material.dart';
@@ -11,10 +12,29 @@ class AppTheme {
     useMaterial3: true,
     // Use Material Design 3
     fontFamily: GoogleFonts.inconsolata().fontFamily,
-    floatingActionButtonTheme: FloatingActionButtonThemeData().copyWith(
-      elevation: 2
-    )
+    floatingActionButtonTheme:
+        FloatingActionButtonThemeData().copyWith(elevation: 2),
     // Set default font family
+    outlinedButtonTheme: OutlinedButtonThemeData(
+      style: ButtonStyle().copyWith(
+        elevation: WidgetStateProperty.all(0),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppTypo.borderRadius),
+          ),
+        ),
+      ),
+    ),
+    filledButtonTheme: FilledButtonThemeData(
+      style: ButtonStyle().copyWith(
+        elevation: WidgetStateProperty.all(0),
+        shape: WidgetStateProperty.all(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(AppTypo.borderRadius),
+          ),
+        ),
+      ),
+    ),
   );
 
   static ThemeData lightTheme = _baseTheme.copyWith(
@@ -48,7 +68,7 @@ class AppTheme {
       centerTitle: true,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData().copyWith(
-      backgroundColor: AppColors.dark.surface,
+      backgroundColor: AppColors.dark.primaryContainer,
       elevation: 0,
       unselectedItemColor: AppColors.dark.primaryFixed,
     ),
@@ -56,7 +76,7 @@ class AppTheme {
       elevation: 0,
       color: AppColors.dark.primaryContainer,
     ),
-    iconTheme: IconThemeData(
+    iconTheme: IconThemeData().copyWith(
       color: AppColors.dark.onPrimaryContainer,
     ),
   );

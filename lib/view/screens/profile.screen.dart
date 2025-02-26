@@ -1,8 +1,6 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/theme/app_typography.dart';
-import 'package:chitpur/routes/route_name.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -28,31 +26,22 @@ class ProfileScreen extends StatelessWidget {
                   spacing: 30,
                   children: [
                     Center(
-                      child: Image.asset(
-                        _authController.user.value.photoUrl != ""
-                            ? _authController.user.value.photoUrl
-                            : ImageStrings.profileImage,
-                        height: 200,
-                        width: 200,
-                      ),
+                      child: _networkImage(_authController.user.value.photoUrl),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           "Name : ${_authController.user.value.name != "" ? _authController.user.value.name : "Not defined"}",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle(),
                         ),
                         Text(
                           "Email : ${_authController.user.value.email}",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle(),
                         ),
                         Text(
                           "Created At : ${_authController.user.value.createdAt.toLocal().toString().substring(0, 10)}",
-                          style: TextStyle(
-                          ),
+                          style: TextStyle(),
                         ),
                       ],
                     ),
@@ -63,15 +52,13 @@ class ProfileScreen extends StatelessWidget {
             TextButton(
               onPressed: () {
                 _authController.signOut();
-                Get.offAllNamed(RouteNames.authScreen);
               },
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     "Sign Out",
-                    style: TextStyle(
-                    ),
+                    style: TextStyle(),
                   ),
                   SizedBox(
                     width: 10,
@@ -89,4 +76,31 @@ class ProfileScreen extends StatelessWidget {
       drawer: DrawerC(),
     );
   }
+}
+
+Widget _networkImage(String url) {
+  return ClipOval(
+    child: Image.network(
+      url,
+      loadingBuilder: (context, child, loadingProgress) {
+        if (loadingProgress == null) return child;
+        return Center(
+          child: CircularProgressIndicator(
+            value: loadingProgress.expectedTotalBytes != null
+                ? loadingProgress.cumulativeBytesLoaded /
+                    (loadingProgress.expectedTotalBytes ?? 1)
+                : null,
+          ),
+        );
+      },
+      errorBuilder: (context, error, stackTrace) {
+        return Image.asset(
+          ImageStrings.profileImage,
+        );
+      },
+      fit: BoxFit.cover,
+      height: 200,
+      width: 200,
+    ),
+  );
 }

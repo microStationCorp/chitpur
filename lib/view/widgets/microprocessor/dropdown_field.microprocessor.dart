@@ -1,3 +1,4 @@
+import 'package:chitpur/view/widgets/common/custom_dropdown_menu.dart';
 import 'package:flutter/material.dart';
 
 import '../../../resource/app_string.dart';
@@ -29,8 +30,6 @@ class _DropDownFieldState extends State<DropDownField> {
           flex: 2,
           child: Text(
             widget.label,
-            style: TextStyle(
-                fontSize: Theme.of(context).textTheme.bodyLarge!.fontSize),
           ),
         ),
         SizedBox(
@@ -38,37 +37,10 @@ class _DropDownFieldState extends State<DropDownField> {
         ),
         Flexible(
           flex: 3,
-          child: DropdownButtonFormField(
-            decoration: InputDecoration(
-              border: OutlineInputBorder(),
-            ),
-            items: widget.items
-                .map(
-                  (e) => DropdownMenuItem(
-                    value: e,
-                    child: Text(
-                      e,
-                      style: TextStyle(
-                        letterSpacing: 2.0,
-                      ),
-                    ),
-                  ),
-                )
-                .toList(),
-            onChanged: (String? value) {
-              selectedValue = value;
-            },
-            value: selectedValue,
-            hint: Text(
-              AppString.selectAnOption,
-            ),
-            validator: (value) {
-              if (value == null) {
-                return AppString.selectAnOption;
-              }
-              return null;
-            },
-            onSaved: widget.onSavedCallback,
+          child: CDropDownMenu(
+            items: widget.items,
+            hintText: AppString.selectAnOption,
+            onSavedCallback: widget.onSavedCallback,
           ),
         )
       ],

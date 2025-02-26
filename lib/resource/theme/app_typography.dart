@@ -22,4 +22,6 @@ class AppTypo {
   static const double labelLarge = 14;
   static const double labelMedium = 12;
   static const double labelSmall = 11;
+
+  static const double borderRadius = 10;
 }

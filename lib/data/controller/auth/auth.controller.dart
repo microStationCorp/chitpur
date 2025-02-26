@@ -1,18 +1,20 @@
 import 'package:chitpur/data/services/auth.services.dart';
-import 'package:chitpur/routes/route_name.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../../../routes/route_name.dart';
 import '../../models/user/user.model.dart';
 
 class AuthController extends GetxController {
+  var isLoading = false.obs;
   final AuthService authService = AuthService();
   var user = UserModel(
-          uid: '', email: '', name: '', photoUrl: '', createdAt: DateTime.now())
-      .obs;
-
-  late String email;
-  late String password;
+    uid: '',
+    email: '',
+    name: '',
+    photoUrl: '',
+    createdAt: DateTime.now(),
+  ).obs;
 
   @override
   void onInit() {
@@ -34,26 +36,21 @@ class AuthController extends GetxController {
     );
   }
 
-  Future<void> signUp() async {
-    UserModel? result =
-        await authService.signUp(email: email, password: password);
-    if (result != null) {
-      user.value = result;
-    }
-  }
-
   Future<void> signIn() async {
-    UserModel? result =
-        await authService.signIn(email: email, password: password);
+    isLoading.value = true;
+    UserModel? result = await authService.signInWithGoogle();
     if (result != null) {
       user.value = result;
+      isLoading.value = false;
       Get.offAllNamed(RouteNames.homeScreen);
     }
+    isLoading.value = false;
   }
 
   Future<void> signOut() async {
     await authService.signOut();
     user.value = nullUser;
+    Get.offAllNamed(RouteNames.authScreen);
   }
 
   bool get isSignedIn => user.value.uid.isNotEmpty;

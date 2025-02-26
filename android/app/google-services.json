@@ -12,7 +12,20 @@
           "package_name": "com.microstationcorp.chitpur"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "772014623567-lo05161s9iqmj52lgtheptehgjec14eb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.microstationcorp.chitpur",
+            "certificate_hash": "7ec51566087811ba2baf98f4eb10474ac541e529"
+          }
+        },
+        {
+          "client_id": "772014623567-r3dgkvejqv3qj2vrmt8pi5ghsldc4mba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBKoqxuc2fVq4lwTd1x2EPdPvxHsZmWEO4"
@@ -20,7 +33,41 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772014623567-r3dgkvejqv3qj2vrmt8pi5ghsldc4mba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:772014623567:android:580a614b2a6175cd67d33a",
+        "android_client_info": {
+          "package_name": "com.microstationcorp.issue"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "772014623567-r3dgkvejqv3qj2vrmt8pi5ghsldc4mba.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBKoqxuc2fVq4lwTd1x2EPdPvxHsZmWEO4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "772014623567-r3dgkvejqv3qj2vrmt8pi5ghsldc4mba.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

@@ -4,38 +4,51 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 void errorSnackBar(String title, String message) {
-  Get.snackbar(
+  _showSnackBar(
     title,
     message,
-    backgroundColor: AppColors.dark.error,
-    animationDuration: Duration(milliseconds: 400),
-    colorText: AppColors.dark.onError,
-    icon: Icon(
-      AppIcons.error,
-      color: AppColors.dark.onError,
-    ),
+    AppColors.dark.error,
+    AppColors.dark.onError,
+    AppIcons.error,
   );
 }
 
 void successSnackBar(String title, String message) {
-  Get.snackbar(
+  _showSnackBar(
     title,
     message,
-    backgroundColor: AppColors.checkColor,
-    colorText: Colors.white,
-    animationDuration: Duration(milliseconds: 400),
-    icon: const Icon(
-      AppIcons.thumbsUp,
-      color: Colors.white,
-    ),
+    AppColors.checkColor,
+    Colors.white,
+    AppIcons.thumbsUp,
   );
 }
 
 void generalSnackBar(String title, String message) {
+  _showSnackBar(
+    title,
+    message,
+    null,
+    null,
+    AppIcons.triangleAlert,
+  );
+}
+
+void _showSnackBar(
+  String title,
+  String message,
+  Color? backgroundColor,
+  Color? textColor,
+  IconData iconData,
+) {
   Get.snackbar(
     title,
     message,
-    animationDuration: Duration(milliseconds: 400),
-    icon: const Icon(AppIcons.triangleAlert),
+    backgroundColor: backgroundColor,
+    colorText: textColor,
+    animationDuration: const Duration(milliseconds: 400),
+    icon: Icon(
+      iconData,
+      color: textColor,
+    ),
   );
 }

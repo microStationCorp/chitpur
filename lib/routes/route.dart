@@ -1,5 +1,5 @@
 import 'package:chitpur/routes/route_name.dart';
-import 'package:chitpur/view/screens/auth_screen.dart';
+import 'package:chitpur/view/screens/auth/auth.screen.dart';
 import 'package:chitpur/view/screens/home_scren.dart';
 import 'package:chitpur/view/screens/microprocessor/data_add.microprocessor.dart';
 import 'package:chitpur/view/screens/microprocessor/data_list.microprocessor.com.dart';

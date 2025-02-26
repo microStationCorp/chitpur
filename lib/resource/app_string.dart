@@ -10,9 +10,17 @@ class AppBarTitle {
   static const String profilePage = "Profile Page";
 }
 
-class AuthString{
+class AuthString {
   static const String loginOrRegister = "Log in or Register";
   static const String signOut = "Sign Out";
+}
+
+class Gender {
+  Gender._();
+
+  static const String male = "Male";
+  static const String female = "Female";
+  static const String others = "Others";
 }
 
 class CoachType {
@@ -110,6 +118,6 @@ class Titles {
   static const String pressureGauge = "Pressure Gauge";
 }
 
-class ImageStrings{
+class ImageStrings {
   static const String profileImage = "assets/images/user.png";
 }

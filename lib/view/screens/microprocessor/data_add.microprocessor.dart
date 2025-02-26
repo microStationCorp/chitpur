@@ -1,14 +1,14 @@
 import 'package:chitpur/data/controller/microprocessor/controller.microprocessor.dart';
-import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/resource/app_string.dart';
 import 'package:chitpur/utils/form_validators.dart';
 import 'package:chitpur/view/widgets/common/feedback_snackbar.dart';
 import 'package:chitpur/view/widgets/microprocessor/card.microprocessor.dart';
 import 'package:chitpur/view/widgets/microprocessor/cover.microprocessor.dart';
 import 'package:chitpur/view/widgets/microprocessor/dropdown_field.microprocessor.dart';
-import 'package:chitpur/view/widgets/microprocessor/text_form_field.microprocessor.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../../widgets/common/custom_text_field.dart';
 
 class DataAddMP extends StatefulWidget {
   const DataAddMP({super.key});
@@ -68,8 +68,8 @@ class _DataAddMPState extends State<DataAddMP> {
                           SizedBox(
                             height: 15,
                           ),
-                          TextFormFieldMP(
-                            labelText:
+                          CTextFormField(
+                            hintText:
                                 MicroprocessorFormFieldsLabels.coachNumber,
                             validatorCallback: isEmptyValidator,
                             onSavedCallback: (value) {
@@ -104,8 +104,8 @@ class _DataAddMPState extends State<DataAddMP> {
                           SizedBox(
                             height: 15,
                           ),
-                          TextFormFieldMP(
-                            labelText: MicroprocessorFormFieldsLabels
+                          CTextFormField(
+                            hintText: MicroprocessorFormFieldsLabels
                                 .microprocessorStatus,
                             onSavedCallback: (value) {
                               controllerMp.microprocessorStatus = value!;
@@ -126,8 +126,8 @@ class _DataAddMPState extends State<DataAddMP> {
                           SizedBox(
                             height: 15,
                           ),
-                          TextFormFieldMP(
-                            labelText: MicroprocessorFormFieldsLabels
+                          CTextFormField(
+                            hintText: MicroprocessorFormFieldsLabels
                                 .microprocessorDisplayStatus,
                             onSavedCallback: (value) {
                               controllerMp.microprocessorDisplayStatus = value!;
@@ -507,7 +507,7 @@ class _DataAddMPState extends State<DataAddMP> {
                     Row(
                       children: [
                         Expanded(
-                          child: ElevatedButton(
+                          child: OutlinedButton(
                             style: ButtonStyle(
                               elevation: WidgetStateProperty.all(0),
                             ),
@@ -527,7 +527,7 @@ class _DataAddMPState extends State<DataAddMP> {
                           width: 25,
                         ),
                         Expanded(
-                          child: ElevatedButton(
+                          child: FilledButton(
                             style: ButtonStyle(
                               elevation: WidgetStateProperty.all(0),
                             ),
