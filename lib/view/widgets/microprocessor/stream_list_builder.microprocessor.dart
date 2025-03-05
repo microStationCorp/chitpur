@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../../resource/theme/app_typography.dart';
 import '../../screens/microprocessor/coach_detail/coach_detail.microprocessor.dart';
 import 'list_tile.microprocessor.dart';
 

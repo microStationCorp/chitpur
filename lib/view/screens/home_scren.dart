@@ -1,6 +1,6 @@
 import "package:chitpur/data/controller/auth/auth.controller.dart";
-import "package:chitpur/view/widgets/appbar.dart";
-import "package:chitpur/view/widgets/drawer.dart";
+import "package:chitpur/view/widgets/common/appbar.dart";
+import "package:chitpur/view/widgets/common/drawer.dart";
 import "package:flutter/material.dart";
 import "package:get/get.dart";
 

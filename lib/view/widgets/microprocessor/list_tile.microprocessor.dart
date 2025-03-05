@@ -1,5 +1,4 @@
 import 'package:chitpur/data/models/microprocessor/microprocessor.model.dart';
-import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 
 class ListTileCustom extends ListTile {

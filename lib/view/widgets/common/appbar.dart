@@ -4,7 +4,7 @@ import 'package:chitpur/resource/app_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../routes/route_name.dart';
+import '../../../routes/route_name.dart';
 
 class AppBarC extends StatelessWidget implements PreferredSizeWidget {
   final double height;

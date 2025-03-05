@@ -1,7 +1,6 @@
-import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/theme/app_typography.dart';
+import 'package:chitpur/resource/theme/app_color.dart';
 import 'package:chitpur/view/widgets/microprocessor/card.microprocessor.dart';
 import 'package:flutter/material.dart';
 

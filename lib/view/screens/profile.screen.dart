@@ -1,16 +1,18 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
+import 'package:chitpur/data/controller/auth/user.controller.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widgets/appbar.dart';
-import '../widgets/drawer.dart';
+import '../widgets/common/appbar.dart';
+import '../widgets/common/drawer.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});
 
   final AuthController _authController = Get.find();
+  final UserController _userController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -26,21 +28,21 @@ class ProfileScreen extends StatelessWidget {
                   spacing: 30,
                   children: [
                     Center(
-                      child: _networkImage(_authController.user.value.photoUrl),
+                      child: _networkImage(_userController.user.value.photoUrl),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          "Name : ${_authController.user.value.name != "" ? _authController.user.value.name : "Not defined"}",
+                          "Name : ${_userController.user.value.name != "" ? _userController.user.value.name : "Not defined"}",
                           style: TextStyle(),
                         ),
                         Text(
-                          "Email : ${_authController.user.value.email}",
+                          "Email : ${_userController.user.value.email}",
                           style: TextStyle(),
                         ),
                         Text(
-                          "Created At : ${_authController.user.value.createdAt.toLocal().toString().substring(0, 10)}",
+                          "Created At : ${_userController.user.value.createdAt.toLocal().toString().substring(0, 10)}",
                           style: TextStyle(),
                         ),
                       ],

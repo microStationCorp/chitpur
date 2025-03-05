@@ -1,5 +1,5 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
-import 'package:chitpur/view/widgets/appbar.dart';
+import 'package:chitpur/view/widgets/common/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +11,7 @@ class AuthScreen extends StatefulWidget {
 }
 
 class _AuthScreenState extends State<AuthScreen> {
-  final AuthController authController = Get.find();
+  final AuthController _authController = Get.find();
 
   @override
   Widget build(BuildContext context) {
@@ -21,9 +21,9 @@ class _AuthScreenState extends State<AuthScreen> {
         padding: const EdgeInsets.fromLTRB(10.0, 20, 10, 0),
         child: Obx(
           () => Center(
-            child: authController.isLoading.value
+            child: _authController.isLoading.value
                 ? CircularProgressIndicator()
-                : loginButton(context, authController),
+                : loginButton(context, _authController),
           ),
         ),
       ),

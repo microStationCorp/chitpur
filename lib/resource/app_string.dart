@@ -42,6 +42,7 @@ class MicroprocessorName {
 
 class FirestoreCollectionName {
   static const String microprocessorCollectionName = "microprocessors";
+  static const String userCollectionName = "users";
 }
 
 class AnalogFieldOptions {

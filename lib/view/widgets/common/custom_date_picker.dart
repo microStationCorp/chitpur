@@ -7,10 +7,10 @@ class CDatePicker extends StatefulWidget {
   const CDatePicker({super.key, this.onSavedCallback});
 
   @override
-  _CDatePicker createState() => _CDatePicker();
+  State<CDatePicker> createState() => _CDatePickerState();
 }
 
-class _CDatePicker extends State<CDatePicker> {
+class _CDatePickerState extends State<CDatePicker> {
   TextEditingController dateController = TextEditingController();
 
   Future<void> _selectDate(BuildContext context) async {

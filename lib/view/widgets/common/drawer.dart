@@ -1,10 +1,9 @@
 import 'package:chitpur/data/controller/auth/auth.controller.dart';
 import 'package:chitpur/resource/app_string.dart';
-import 'package:chitpur/resource/theme/app_typography.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../routes/route_name.dart';
+import '../../../routes/route_name.dart';
 
 class DrawerC extends StatelessWidget {
   DrawerC({super.key});
