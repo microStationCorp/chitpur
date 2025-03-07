@@ -46,10 +46,10 @@ class MyApp extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: controller.getThemeMode(),
-          initialRoute: RouteNames.splashScreen,
           // Home widget
           // home: UItest(),
           // List of routes
+          initialRoute: RouteNames.splashScreen,
           getPages: [
             ...AppRoutes.appRoutes(),
           ],

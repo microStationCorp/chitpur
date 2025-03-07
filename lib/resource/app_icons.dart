@@ -25,4 +25,6 @@ class AppIcons {
   static const IconData atSign = LucideIcons.atSign;
   static const IconData keyRound = LucideIcons.keyRound;
   static const IconData phone = LucideIcons.phone;
+  static const IconData moon = LucideIcons.sunMoon;
+  static const IconData sun = LucideIcons.sunMedium;
 }

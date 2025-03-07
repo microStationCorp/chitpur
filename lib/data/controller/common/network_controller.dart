@@ -10,10 +10,6 @@ class NetworkController extends GetxController {
 
   bool isOnline = false;
 
-  // This will hold the current route
-  // This list will hold the previous routes
-  List<GetPage<dynamic>> previousRoutes = [];
-
   @override
   void onInit() {
     super.onInit();
@@ -25,10 +21,14 @@ class NetworkController extends GetxController {
     if (connectivityResult.isNotEmpty) {
       if (connectivityResult[0] == ConnectivityResult.none) {
         isOnline = false;
-        Get.toNamed(RouteNames.networkError);
+        if (Get.currentRoute != RouteNames.networkError) {
+          Get.toNamed(RouteNames.networkError);
+        }
       } else {
         isOnline = true;
-        Get.back();
+        if (Get.currentRoute == RouteNames.networkError) {
+          Get.back();
+        }
       }
     }
   }

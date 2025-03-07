@@ -1,7 +1,21 @@
 enum UserRole {
-  admin,
-  dev,
-  user;
+  admin('admin'),
+  dev('dev'),
+  user('user');
+
+  final String value;
+
+  const UserRole(this.value);
+
+  static UserRole fromString(String roleString) {
+    return UserRole.values.firstWhere(
+      (role) => role.value == roleString,
+      orElse: () => UserRole.user, // Default to user if not found
+    );
+  }
+
+  @override
+  String toString() => value;
 }
 
 // user_model.dart
@@ -33,9 +47,7 @@ class UserModel {
         photoUrl: json['photoUrl'],
         phoneNumber: json['phoneNumber'],
         designation: json['designation'],
-        role: UserRole.values.firstWhere(
-          (element) => element.toString() == json['role'],
-        ),
+        role: UserRole.fromString(json['role']),
         createdAt: DateTime.parse(json['createdAt']),
       );
 
@@ -50,24 +62,25 @@ class UserModel {
         'role': role.toString(),
       };
 
-  UserModel copyWith(
-      {String? uid,
-      String? email,
-      String? name,
-      String? photoUrl,
-      DateTime? createdAt,
-      UserRole? role,
-      int? phoneNumber,
-      String? designation}) {
+  UserModel copyWith({
+    String? uid,
+    String? email,
+    String? name,
+    String? photoUrl,
+    DateTime? createdAt,
+    UserRole? role,
+    int? phoneNumber,
+    String? designation,
+  }) {
     return UserModel(
-      phoneNumber: phoneNumber,
-      name: name!,
-      photoUrl: photoUrl!,
-      uid: uid!,
-      email: email!,
-      createdAt: createdAt!,
-      designation: designation!,
-      role: role!,
+      uid: uid ?? this.uid,
+      email: email ?? this.email,
+      name: name ?? this.name,
+      photoUrl: photoUrl ?? this.photoUrl,
+      createdAt: createdAt ?? this.createdAt,
+      role: role ?? this.role,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      designation: designation ?? this.designation,
     );
   }
 }

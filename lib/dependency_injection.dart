@@ -14,7 +14,7 @@ class DependencyInjection {
         fenix: true);
     Get.put<CategoryController>(CategoryController(), permanent: true);
     Get.put<UserController>(UserController(), permanent: true);
-    Get.lazyPut<AuthController>(() => AuthController(), fenix: true);
+    Get.put<AuthController>(AuthController(), permanent: true);
     Get.put<ThemeController>(ThemeController(), permanent: true);
   }
 }

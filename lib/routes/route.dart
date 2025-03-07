@@ -6,7 +6,7 @@ import 'package:chitpur/view/screens/microprocessor/data_list.microprocessor.com
 import 'package:chitpur/view/screens/microprocessor/data_search.microprocessor.dart';
 import 'package:chitpur/view/screens/microprocessor/home_screen.microprocessor.dart';
 import 'package:chitpur/view/screens/network_error.screens.dart';
-import 'package:chitpur/view/screens/profile.screen.dart';
+import 'package:chitpur/view/screens/auth/profile.screen.dart';
 import 'package:chitpur/view/screens/splash_screen.dart';
 import 'package:get/get.dart';
 

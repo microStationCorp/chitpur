@@ -3,7 +3,6 @@ import 'package:chitpur/data/services/auth.services.dart';
 import 'package:chitpur/data/services/user.services.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/route_name.dart';
@@ -29,14 +28,10 @@ class AuthController extends GetxController {
       _userController.user.value = _userController.nullUser;
       return;
     }
-    if (kDebugMode) {
-      print("Signed in: ${firebaseUser.uid}");
-    }
     DocumentSnapshot<UserModel> snapshot =
-    await _userServices.getUserById(firebaseUser.uid);
-    _userController.user.value = snapshot.exists
-        ? snapshot.data()!
-        : await _createNewUser(firebaseUser);
+        await _userServices.getUserById(firebaseUser.uid);
+    _userController.user.value =
+        snapshot.exists ? snapshot.data()! : await _createNewUser(firebaseUser);
   }
 
   // Create a new user in the database.
