@@ -4,6 +4,7 @@ import 'package:chitpur/data/models/user/user.model.dart';
 import 'package:chitpur/resource/app_icons.dart';
 import 'package:chitpur/resource/app_string.dart';
 import 'package:chitpur/resource/theme/app_color.dart';
+import 'package:chitpur/utils/timestamp.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +32,11 @@ class ProfileScreen extends StatelessWidget {
                   photoUrl: _userController.user.value.photoUrl),
             ),
             Obx(() => BuildTitleProfile(user: _userController.user.value)),
-            BuildNavigation(themeController: _themeController),
+            BuildNavigation(
+              themeController: _themeController,
+              authController: _authController,
+            ),
+            _buildDataField(context)
           ],
         ),
       ),
@@ -39,45 +44,46 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // Extracted widget for user info
-  Widget _buildUserInfo(UserModel user) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        _buildInfoRow("Name", user.name.isNotEmpty ? user.name : "Not defined"),
-        _buildInfoRow("Email", user.email),
-        _buildInfoRow(
-            "Created At", user.createdAt.toLocal().toString().substring(0, 10)),
-      ],
-    );
-  }
+  Positioned _buildDataField(BuildContext context) {
+    Widget buildText(IconData icon, dynamic value) {
+      return Card(
+        elevation: 0,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Row(
+            children: [
+              Card(
+                color: Theme.of(context).colorScheme.surfaceDim,
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Icon(icon),
+                ),
+              ),
+              Text(
+                " ${value ?? "Not Provided"}",
+                style: TextStyle().copyWith(
+                  fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
-  // Extracted widget for info row
-  Widget _buildInfoRow(String label, String value) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 4.0),
-      child: Text("$label : $value"),
-    );
-  }
-
-  // Extracted widget for sign out button
-  Widget _buildSignOutButton() {
-    return TextButton(
-      onPressed: () {
-        _authController.signOut();
-      },
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+    return Positioned(
+      top: Get.height * 0.35,
+      left: Get.width * 0.05,
+      right: Get.width * 0.05,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        spacing: 10,
         children: [
-          const Text(
-            "Sign Out",
-            style: TextStyle(fontSize: 16),
-          ),
-          const SizedBox(width: 10),
-          Icon(
-            AppIcons.logout,
-            weight: 2,
-          ),
+          buildText(AppIcons.atSign, _userController.user.value.email),
+          buildText(AppIcons.tag, _userController.user.value.designation),
+          buildText(AppIcons.hash, _userController.user.value.phoneNumber),
+          buildText(AppIcons.calender,
+              formatTimestamp(_userController.user.value.createdAt).toString()),
         ],
       ),
     );
@@ -95,7 +101,7 @@ class BuildProfileImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: Get.height * .1 - 20,
+      top: Get.height * .15 - 20,
       left: Get.width * .1,
       child: SizedBox(
         height: 150,
@@ -139,40 +145,43 @@ class BuildProfileImage extends StatelessWidget {
 class BuildNavigation extends StatelessWidget {
   const BuildNavigation({
     super.key,
-    required ThemeController themeController,
-  }) : _themeController = themeController;
+    required this.themeController,
+    required this.authController,
+  });
 
-  final ThemeController _themeController;
+  final AuthController authController;
+  final ThemeController themeController;
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: 25,
+      top: 30,
       left: 10,
       right: 10,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(
-            onPressed: () {
-              Get.back();
-            },
-            icon: Icon(
-              AppIcons.back,
-              color: AppColors.light.onTertiary,
-            ),
+          _navButton(AppIcons.back, Get.back),
+          Row(
+            children: [
+              _navButton(
+                themeController.isDark.value ? AppIcons.sun : AppIcons.moon,
+                () =>
+                    themeController.changeTheme(!themeController.isDark.value),
+              ),
+              _navButton(AppIcons.userPen, () {}),
+              _navButton(AppIcons.logout, authController.signOut),
+            ],
           ),
-          IconButton(
-            onPressed: () {
-              _themeController.changeTheme(!_themeController.isDark.value);
-            },
-            icon: Icon(
-              _themeController.isDark.value ? AppIcons.sun : AppIcons.moon,
-              color: AppColors.light.onTertiary,
-            ),
-          )
         ],
       ),
+    );
+  }
+
+  Widget _navButton(IconData icon, VoidCallback onPressed) {
+    return IconButton(
+      onPressed: onPressed,
+      icon: Icon(icon, color: AppColors.light.onTertiary),
     );
   }
 }
@@ -189,7 +198,7 @@ class BuildTitleProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     return Positioned(
       right: Get.width * .05,
-      top: Get.height * .1 + 5,
+      top: Get.height * .15 + 5,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
@@ -201,7 +210,7 @@ class BuildTitleProfile extends StatelessWidget {
             ),
           ),
           Text(
-            user.designation ?? "Not defined",
+            user.role.toString().toUpperCase(),
             style: TextStyle().copyWith(
               fontSize: Theme.of(context).textTheme.titleLarge?.fontSize,
               color: AppColors.warmBeige,
@@ -223,7 +232,7 @@ class Wavy extends StatelessWidget {
     return ClipPath(
       clipper: WavyClipper(),
       child: Container(
-        height: Get.height * .25,
+        height: Get.height * .3,
         decoration: BoxDecoration(
           gradient: LinearGradient(
             colors: [

@@ -27,4 +27,9 @@ class AppIcons {
   static const IconData phone = LucideIcons.phone;
   static const IconData moon = LucideIcons.sunMoon;
   static const IconData sun = LucideIcons.sunMedium;
+  static const IconData userPen = LucideIcons.userPen;
+  static const IconData atSing = LucideIcons.atSign;
+  static const IconData tag = LucideIcons.tag;
+  static const IconData hash = LucideIcons.hash;
+  static const IconData calender = LucideIcons.calendar;
 }
